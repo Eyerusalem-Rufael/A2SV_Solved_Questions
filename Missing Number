@@ -1,0 +1,9 @@
+class Solution:
+    def missingNumber(self, nums: List[int]) -> int:
+        nums.sort()
+        init = 0
+        for i in nums:
+            if i == init:
+                init+=1
+
+        return init
