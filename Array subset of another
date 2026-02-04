@@ -1,0 +1,31 @@
+#User function Template for python3
+
+class Solution:
+    #Function to check if a is a subset of b.
+    def isSubset(self, a, b):
+        a.sort()
+        b.sort()
+        n = len(a)
+        lenB = len(b)
+        z = 0
+        for i in range(n):
+            if z < lenB and a[i] == b[z]:
+                z+=1
+        if lenB == z:
+            return True
+        else:
+            False
+            
+            
+        #    for i in b:
+        #     if i not in a:
+        #         return False
+        #     a.remove(i)
+        # return True
+       
+        
+        
+    
+    
+    
+    
