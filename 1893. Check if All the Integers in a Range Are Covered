@@ -1,0 +1,10 @@
+class Solution:
+    def isCovered(self, ranges: List[List[int]], left: int, right: int) -> bool:
+        nums=set()
+        for s,e in ranges:
+           nums.update(range(s,e+1))
+    
+        for x in range(left,right+1):
+            if x not in nums:
+                return False
+        return True
