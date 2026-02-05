@@ -15,24 +15,19 @@ class Solution:
                         arr.append(elt1)
         return arr
 
-'''
-class Solution:
-    def findRestaurant(self, list1: List[str], list2: List[str]) -> List[str]:
-        
-        list1_dic = {elt1:idx1 for idx1,elt1 in enumerate(list1)}
 
-        minLen = float('inf')
-        arr = []
+#    list1_dic = {elt1:idx1 for idx1,elt1 in enumerate(list1)}
 
-        for idx2,elt2 in enumerate(list2):
-            if elt2 in list1_dic:
-                idx1 = list1_dic[elt2]
-                indexSum = idx1+idx2
-                if indexSum < minLen:
-                    minLen = indexSum
-                    arr = [elt2]
-                elif indexSum == minLen:
-                    arr.append(elt2)
-        return arr
+#         minLen = float('inf')
+#         arr = []
 
-'''
+#         for idx2,elt2 in enumerate(list2):
+#             if elt2 in list1_dic:
+#                 idx1 = list1_dic[elt2]
+#                 indexSum = idx1+idx2
+#                 if indexSum < minLen:
+#                     minLen = indexSum
+#                     arr = [elt2]
+#                 elif indexSum == minLen:
+#                     arr.append(elt2)
+#         return arr
