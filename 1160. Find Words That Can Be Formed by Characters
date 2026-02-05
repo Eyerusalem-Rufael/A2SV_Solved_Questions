@@ -1,0 +1,26 @@
+class Solution:
+    def countCharacters(self, words: List[str], chars: str) -> int:
+        length = 0
+        countofChars = Counter(chars)
+
+        for i in words:
+            n = len(i)
+            countofWords = Counter(i) 
+            flag = True
+            for letter in countofWords:
+                if countofChars[letter] < countofWords[letter]:
+                    flag = False
+                    break
+            if flag:
+                length+=n
+        return length
+            
+            
+            
+       
+
+
+    
+
+        
+       
