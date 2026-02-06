@@ -1,0 +1,12 @@
+from collections import defaultdict
+class Solution:
+    def majorityElement(self, nums: List[int]) -> List[int]:
+        n = len(nums) // 3
+        arr = []
+        dic = defaultdict(int)
+        for i in nums:
+            dic[i] +=1
+        for i,elt in dic.items():
+            if elt  > n:
+                arr.append(i)
+        return arr
