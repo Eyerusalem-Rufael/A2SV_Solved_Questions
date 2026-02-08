@@ -1,0 +1,18 @@
+from collections import defaultdict
+
+class Solution:
+    def subdomainVisits(self, cpdomains: List[str]) -> List[str]:
+        dic = defaultdict(int)
+
+        for domain in cpdomains:
+            num , splited = domain.split(" ")
+            num = int(num)
+            subdomain = splited.split('.')
+
+            for i in range(len(subdomain)):
+                sub = '.'.join(subdomain[i:])
+                dic[sub] += num
+
+        return [f"{val} {key}" for key,val in dic.items()]
+            
+        
