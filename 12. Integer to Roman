@@ -6,10 +6,9 @@ class Solution:
                 "X":10,"IX":9,"V":5,"IV":4,"I":1}
 
         for key,val in dic.items():
-            while num>=val:
-                if num >= val:
-                    num -=val
-                    res.append(key)
+            while num >= val:
+                num -=val
+                res.append(key)
          
         return ''.join(res)
         
