@@ -1,0 +1,18 @@
+class Solution:
+    def restoreString(self, s: str, indices: List[int]) -> str:
+        n = len(indices)
+        dic = defaultdict(int)
+
+        for i in range(n):
+            strs = s[i]
+            indx = indices[i]
+            dic[indx] = strs
+        res = []
+        for key,val in sorted(dic.items()):
+            res.append(dic[key])
+
+        return ''.join(res)
+            
+
+
+        
