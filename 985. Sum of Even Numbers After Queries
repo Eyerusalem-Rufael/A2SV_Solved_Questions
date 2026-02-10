@@ -3,8 +3,7 @@ class Solution:
         
         even_sum = sum([num for num in nums if num%2 == 0])
         res = []
-        init = 0
-
+    
         for val,idx in queries:
             if nums[idx] % 2 == 0:
                  even_sum -= nums[idx]
