@@ -1,0 +1,17 @@
+class Solution:
+    def isHappy(self, n: int) -> bool:
+      arr = []
+      
+      while n!=1:
+        if n in arr:
+            return False
+        arr.append(n)
+        x = 0
+        for i in str(n):
+            i = int(i)
+            x+=i*i
+        
+        n = x 
+      return True
+    
+      
