@@ -1,0 +1,22 @@
+class Solution:
+    def findOriginalArray(self, changed: List[int]) -> List[int]:
+        
+        changed.sort()
+        count = Counter(changed)
+        res = []
+        
+        if len(changed) % 2 != 0:
+            return []
+        
+        for i in changed:
+            if count[i] == 0:
+                continue
+
+            if count[2*i] == 0: #double not exist
+                return []
+
+            res.append(i)
+            count[i] -=1
+            count[2*i] -= 1 
+
+        return res
