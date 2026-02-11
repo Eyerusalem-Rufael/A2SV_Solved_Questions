@@ -1,0 +1,11 @@
+class Solution:
+    def minSteps(self, s: str, t: str) -> int:
+        S = Counter(s)
+        T = Counter(t)
+        ans = 0
+
+        for char in S:
+            if S[char] > T[char]:
+                ans+= S[char] - T[char]
+
+        return ans
