@@ -1,0 +1,21 @@
+
+class Solution:
+    def findValidPair(self, s: str) -> str:
+        count = Counter(s)
+        n = len(s)
+
+        for i in range(n-1):
+            left , right = s[i] ,s [i+1]
+
+            if left == right:
+                continue
+
+            if count[left] == int(left) and count[right] == int(right):
+                return left + right
+
+        return ""
+            
+      
+            
+
+
