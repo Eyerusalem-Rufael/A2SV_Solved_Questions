@@ -1,0 +1,19 @@
+class Solution:
+    def findCommonResponse(self, responses: List[List[str]]) -> str:
+
+        freq = defaultdict(int)
+        max_freq = 0
+        ans = ''
+
+        for response in responses:
+            for word in set(response):
+                freq[word] += 1
+                
+        for key , val in freq.items():
+            if val > max_freq or (val == max_freq and key < ans):
+                max_freq = val
+                ans = key
+
+        return ans
+
+        
