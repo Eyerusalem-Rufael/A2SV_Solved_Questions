@@ -1,0 +1,10 @@
+class Solution:
+    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+        ransomNoteCount = Counter(ransomNote)
+        magazineCount = Counter(magazine)
+
+        for key,val in ransomNoteCount.items():
+            if val > magazineCount[key]:
+                return False
+        return True
+        
