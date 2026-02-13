@@ -1,0 +1,34 @@
+class Solution:
+    def wordPattern(self, pattern: str, s: str) -> bool:
+
+        arr = list(s.split())
+        
+        if len(arr) != len(pattern):
+            return False
+
+        mapPS = {}
+        mapSP = {}
+
+        for p , s in zip(pattern , arr):
+            if p in mapPS:
+                if s != mapPS[p]:
+                    return False
+            else:
+                mapPS[p] = s
+
+            if s in mapSP:
+                if p != mapSP[s]:
+                    return False
+            else:
+                mapSP[s] = p
+            
+        return True
+
+        # lengthS = len(set(arr))
+        # length_Pattern = len(set(pattern))
+
+        # # print(arr , lengthS , length_Pattern)
+
+        # return len(set(zip(pattern,arr))) == lengthS == length_Pattern
+        
+        
