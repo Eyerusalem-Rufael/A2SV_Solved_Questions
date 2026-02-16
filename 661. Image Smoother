@@ -1,30 +1,28 @@
 class Solution:
     def imageSmoother(self, img: List[List[int]]) -> List[List[int]]:
-        dic = [(0,0) , (-1,0) , (-1,1) , (-1,-1) ,
+        moves = [(0,0) , (-1,0) , (-1,1) , (-1,-1) ,
                 (0,-1) , (0 , 1) , (1,-1) , (1,0) , (1,1)
                ]
-
         row = len(img)
         col = len(img[0])
+        smoothed_img = [[0]*col for _ in range(row)]
 
-        img_smoothed = [[0]*col for i in range(row)]
-       
         for i in range(row):
             for j in range(col):
                 total = 0
-                count = 0
-                for d1,d2 in dic:
-                    if d1+i >= 0 and i+d1 < row and d2+j >= 0 and j+d2 < col:
-                        total += img[i+d1][j+d2]
-                        count += 1
-                    
-                img_smoothed[i][j] = floor(total / count)
-        
-        return img_smoothed
+                k = 0
+                for di,dj in moves:
+                    if di + i >= 0 and di + i < row and dj + j >= 0 and dj + j < col:
+                        total += img[i+di][j+dj]
+                        k += 1
+
+                smoothed_img[i][j] = total // k
+
+        return smoothed_img 
+
 
 
                 
-
 
 
 
