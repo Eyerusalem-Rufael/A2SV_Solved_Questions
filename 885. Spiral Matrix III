@@ -1,0 +1,27 @@
+class Solution:
+    def spiralMatrixIII(self, rows: int, cols: int, rStart: int, cStart: int) -> List[List[int]]:
+       moves = [(0,1) , (1,0) , (0,-1) , (-1,0)] #E-S-W-N
+       res = []
+       row =  rStart
+       col =  cStart
+       res.append([row,col])
+       total_grid = rows * cols 
+       step = 1
+
+       while  len(res)  < total_grid:
+        for i in range(4): 
+            di,dj = moves[i]
+           
+            for _ in range(step):
+                row += di
+                col += dj
+                if 0 <= row < rows and 0 <= col < cols: 
+                    res.append([row,col])
+
+                if len(res) == total_grid:
+                    return res
+
+            if i % 2 == 1:
+                step += 1
+
+       return res
