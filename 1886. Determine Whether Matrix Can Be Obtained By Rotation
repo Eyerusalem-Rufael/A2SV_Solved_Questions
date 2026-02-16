@@ -1,6 +1,6 @@
 class Solution:
     def findRotation(self, mat: List[List[int]], target: List[List[int]]) -> bool:
-        for _ in range(4): # we habe to rotate 4X 0 90 180 270
+        for _ in range(4): # we have to rotate 4X 0 90 180 270
         
             if mat == target:
                 return True
