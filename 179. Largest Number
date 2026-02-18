@@ -1,0 +1,17 @@
+class Solution:
+    def largestNumber(self, nums: List[int]) -> str:
+        def compare(a,b):
+            if a + b > b + a:
+                return -1
+            else:
+                return 1
+
+        for idx , elt in enumerate(nums):
+            nums[idx] = str(elt)
+
+        nums.sort(key = cmp_to_key(compare))
+
+        return str(int(''.join(nums)))
+        
+
+        
