@@ -1,0 +1,43 @@
+t = int(input())
+for _ in range(t):
+    n, x, k = map(int, input().split())
+    cmd = input().strip()
+    found_0 = False
+ 
+    for i in range(n):
+        if k == 0:
+            break
+        if cmd[i] == 'L':
+            x -= 1
+        else: 
+            x += 1
+        k -= 1
+        if x == 0:
+            found_0 = True
+            break
+ 
+    if not found_0:
+        print(0)
+        continue
+ 
+    got_0 = 1
+    cycle_len = 0
+    y = 0
+ 
+    for i in range(n):
+        if cmd[i] == 'L':
+            y -= 1
+        else: 
+            y += 1
+        if y == 0:
+            cycle_len = i + 1
+            break
+            
+    if cycle_len:
+        got_0 +=  k // cycle_len
+        print(got_0)
+    else:
+        print(got_0)
+ 
+ 
+ 
