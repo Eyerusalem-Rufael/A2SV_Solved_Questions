@@ -1,0 +1,17 @@
+class Solution:
+    def pancakeSort(self, arr: List[int]) -> List[int]:
+        res = []
+        n = len(arr)
+        
+        for idx in range(n , 1 , -1):
+            max_idx = arr.index(max(arr[:idx])) #find the max val idx
+
+            if max_idx != idx - 1:
+                if max_idx != 0:
+                    arr[:max_idx + 1] = reversed(arr[:max_idx + 1])
+                    res.append(max_idx + 1)
+
+                arr[:idx] = reversed(arr[:idx])
+                res.append(idx) 
+
+        return res
