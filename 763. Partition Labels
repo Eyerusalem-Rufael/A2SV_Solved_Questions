@@ -1,0 +1,18 @@
+class Solution:
+    def partitionLabels(self, s: str) -> List[int]:
+        last_idx = {}
+        left, right = 0,0
+        ans = []
+
+        for i , elt in enumerate(s):
+            last_idx[elt] = i
+
+        for i , elt in enumerate(s):
+            right = max(last_idx[elt],right)
+
+            if i == right:
+                ans.append(right - left + 1) 
+                left = i + 1
+
+        return ans
+
