@@ -1,0 +1,24 @@
+class Solution:
+    def dividePlayers(self, skill: List[int]) -> int:
+        skill.sort()
+        left = 0 
+        right = len(skill)-1
+        target_skill = skill[0] + skill[-1]
+        chemistry = 0
+
+        while left < right:
+            
+            player_1 = skill[left]
+            player_2 = skill[right]
+            current_skill = player_1 + player_2
+
+            if current_skill != target_skill:
+                return -1
+
+            else:
+                chemistry+= player_1 * player_2
+
+            left+=1
+            right-=1
+
+        return chemistry
