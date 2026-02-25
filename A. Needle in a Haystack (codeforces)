@@ -1,0 +1,58 @@
+from collections import Counter
+
+t = int(input())
+for _ in range(t):
+    s = input().strip()
+    t = input().strip()
+
+    count_s = Counter(s)
+    count_t = Counter(t)
+
+    flag = True #check subsequent
+    for i in count_s:
+        if count_s[i] > count_t[i]:
+            flag = False
+            break
+
+    if not flag:
+        print('Impossible')
+        continue
+
+    # decrement s from t
+    for i in count_s:
+        count_t[i] -= count_s[i]
+    
+    
+    res = []
+    sorted_t = []
+
+    #sort to make them lexographically ordered
+    for i in sorted(count_t):
+        sorted_t.extend(i * count_t[i])
+   
+    t_len = len(sorted_t)
+    s_len = len(s)
+    ptr_t = 0
+    ptr_s = 0
+
+    while ptr_t < t_len and ptr_s < s_len:
+        if sorted_t[ptr_t] < s[ptr_s]:
+            res.append(sorted_t[ptr_t])
+            ptr_t += 1
+        
+        elif sorted_t[ptr_t] > s[ptr_s]:
+            res.append(s[ptr_s])
+            ptr_s += 1
+        
+        else:
+            res.append(s[ptr_s])
+            ptr_s += 1
+
+    
+    #if there are any leftovers
+    res.extend(sorted_t[ptr_t:])
+    res.extend(s[ptr_s:])
+    
+    print(''.join(res))
+
+ 
