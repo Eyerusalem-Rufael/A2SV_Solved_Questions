@@ -1,0 +1,13 @@
+t = int(input())
+ 
+for _ in range(t):
+    length , coin = map(int,input().split())
+    nums = [list(map(int,input().split()))  for _ in range(length)]
+    nums.sort()
+ 
+    for i in range(len(nums)):
+        if nums[i][0] <= coin and coin <= nums[i][1]:
+            coin = max(coin , nums[i][2])
+ 
+    print(coin)
+ 
