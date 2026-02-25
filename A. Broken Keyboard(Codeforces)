@@ -1,0 +1,27 @@
+from collections import Counter
+
+t = int(input())
+for i in range(t):
+    s = input().strip()
+    res=[]
+    left = 0
+    right = 1
+
+    while right < len(s):
+
+        if s[left] == s[right]:
+            left+=2
+            right+=2
+            
+        elif s[left] != s[right]:
+            res.append(s[left])
+            left+=1
+            right+=1
+
+    res.extend(s[left:])  
+    res.extend(s[right:])   
+
+    unique = set(res)
+    print("".join(sorted(unique)))
+
+ 
