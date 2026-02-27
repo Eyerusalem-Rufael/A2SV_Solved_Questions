@@ -1,0 +1,21 @@
+t = int(input())
+ 
+for _ in range(t):
+    length = int(input())
+    nums = list(map(int,input().split()))
+    n = len(nums)
+    left = 0
+    right = left + 1
+    ans = [nums[left]]
+ 
+    while right < n - 1:
+        #checking for the hill and valley
+        if (nums[left] < nums[right] and nums[right] > nums[right + 1]) or (nums[left] > nums[right] and nums[right] < nums[right + 1]):
+            ans.append(nums[right])
+            left = right
+ 
+        right += 1
+    
+    ans.append(nums[-1])
+    print(len(ans))
+    print(*ans)
