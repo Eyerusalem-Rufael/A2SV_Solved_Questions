@@ -1,0 +1,16 @@
+length , max_sum = list(map(int,input().split()))
+nums = list(map(int,input().split()))
+ 
+max_segment = 0 
+left = 0
+sums_right = 0 
+ 
+for right in range(length):
+    
+    sums_right += nums[right] 
+    while sums_right >= max_sum: 
+        max_segment += (length - right) 
+        sums_right -= nums[left] 
+        left += 1  
+ 
+print(max_segment)
