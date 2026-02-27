@@ -1,0 +1,15 @@
+from collections import Counter
+ 
+n , m = map(int , input().split())
+nums_1 = list(map(int , input().split()))
+nums_2 = list(map(int , input().split()))
+count_num1 = Counter(nums_1)
+count_num2 = Counter(nums_2)
+count = 0
+ 
+for i in count_num1:
+    if i in count_num2:
+        product = count_num2[i] * count_num1[i]
+        count+= product
+        
+print(count)
