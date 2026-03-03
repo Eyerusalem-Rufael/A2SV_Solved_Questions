@@ -1,0 +1,27 @@
+from collections import defaultdict
+ 
+n , k = map(int,input().split())
+nums = list(map(int,input().split()))
+left = 0
+max_segment = 0
+unique = defaultdict(int)
+res = []
+n = len(nums)
+ 
+for right in range(n):
+    unique[nums[right]] += 1
+ 
+    while len(unique) > k:
+        unique[nums[left]] -= 1
+        if  unique[nums[left]] == 0:
+            del  unique[nums[left]]
+        left += 1
+ 
+    max_segment = max(max_segment , right - left + 1)
+    current_max = right - left + 1
+    
+    if max_segment <= current_max:
+        res = [left + 1 , right + 1]
+ 
+    
+print(*res)
