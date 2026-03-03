@@ -1,0 +1,19 @@
+t = int(input())
+for _ in range(t):
+    n , k = map(int,input().split())
+    colors = input().strip()
+    white = colors[:k].count('W')
+    count = white
+    left = 0
+    
+    for right in range(k , n):
+        if colors[right] == 'W':
+            white += 1
+ 
+        if colors[left] == 'W':
+            white -= 1
+        left += 1
+ 
+        count = min(count , white)
+ 
+    print(count)
