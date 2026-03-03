@@ -1,0 +1,25 @@
+class Solution:
+    def subarraysWithKDistinct(self, nums: List[int], k: int) -> int:
+
+        def distnict(nums,k):
+            count = defaultdict(int)
+            left = 0
+            max_good = 0
+            n = len(nums)
+
+            for right in range(n):
+                count[nums[right]] += 1
+
+                while len(count) > k: #invalid
+                    count[nums[left]] -= 1
+                    
+                    if count[nums[left]] == 0:
+                        del count[nums[left]]
+                    left += 1
+
+                max_good += right - left + 1
+
+            return max_good
+        
+        return distnict(nums,k) - distnict(nums,k-1)
+
