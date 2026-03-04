@@ -1,0 +1,26 @@
+class Solution:
+    def shiftingLetters(self, s: str, shifts: List[List[int]]) -> str:
+        n = len(s)
+        arr = [0] * (n + 1) #to store start and end prevent index out of bound
+
+        for start, end, direction in shifts:
+            direction = 1 if direction == 1 else -1
+            arr[start] += direction
+            arr[end + 1] -= direction
+        #print(arr)  [0, 1, 1, -2, 0]
+
+        current_sum = 0
+        res = []
+
+        for i in range(n):
+            current_sum += arr[i]
+
+            shifts = current_sum % 26
+            order_orginal = ord(s[i]) - ord('a') #to change a->0 b->1
+            shift_after = (shifts + order_orginal) % 26
+
+            alpha = chr(shift_after + ord('a'))
+            res.append(alpha)
+
+        return ''.join(res)
+
