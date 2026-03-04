@@ -1,0 +1,23 @@
+class Solution:
+    def checkSubarraySum(self, nums: List[int], k: int) -> bool:
+        sums = 0
+        mod_dic = {0:-1} # to track the distance of 0 reminder
+
+        for idx , elt in enumerate(nums):
+            sums += elt
+            if k != 0:
+                sums %= k
+
+            if sums in mod_dic:
+                if idx - mod_dic[sums] >= 2:
+                    return True
+            else:
+                mod_dic[sums] = idx
+
+        return False
+
+# sum(nums[i..j]) = prefix_sum[j] − prefix_sum[i−1]
+# sum(nums[i..j]) % k == 0
+# (prefix_sum[j]−prefix_sum[i−1]) % k == 0
+# prefix_sum[j] % k == prefix_sum[i−1] % k if their mod is the same the subarray between them has sum divisible by k.
+        
