@@ -1,0 +1,11 @@
+class Solution:
+    def minStartValue(self, nums: List[int]) -> int:
+        sums = 0
+        min_sum = 1
+
+        for i in nums:
+            sums += i
+            min_sum = max(min_sum , 1 - sums) # startValue >= 1 - prefix_sum
+
+        return min_sum 
+       
