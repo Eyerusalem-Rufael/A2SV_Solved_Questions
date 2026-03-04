@@ -1,0 +1,20 @@
+t = int(input())
+for _ in range(t):
+    red = int(input())
+    red_nums = list(map(int, input().split()))
+    blue = int(input())
+    blue_nums = list(map(int, input().split()))
+ 
+    max_red = 0
+    current_red = 0
+    for num in red_nums:
+        current_red += num
+        max_red = max(max_red , current_red)
+    
+    max_blue = 0
+    current_blue = 0
+    for num in blue_nums:
+        current_blue += num
+        max_blue = max(max_blue , current_blue)
+    
+    print(max_blue + max_red)
