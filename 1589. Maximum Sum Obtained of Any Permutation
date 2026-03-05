@@ -1,0 +1,26 @@
+class Solution:
+    def maxSumRangeQuery(self, nums: List[int], requests: List[List[int]]) -> int:
+        n = len(nums)
+        occurance = [0] * (n+1)
+        for request1 , request2 in requests:
+            occurance[request1] += 1
+            occurance[request2 + 1] -= 1
+
+        #print(occurance)
+        for i in range(1,n):
+            occurance[i] += occurance[i-1]
+        occurance = occurance[:n]
+        #print(occurance)
+        occurance.sort(reverse = True)
+        nums.sort(reverse = True)
+
+        max_sum = 0
+        mod = 10**9 + 7
+        for num , occur in zip(nums,occurance):
+            product = num * occur
+            max_sum += product
+            max_sum %= mod 
+
+        return max_sum
+        
+
