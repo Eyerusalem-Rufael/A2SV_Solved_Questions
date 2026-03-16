@@ -4,7 +4,7 @@ class Solution:
         while target > 1:
             if target % 2 == 0 and maxDoubles > 0:
                 maxDoubles -= 1
-                target -= target // 2
+                target = target // 2
                 count += 1
             elif maxDoubles == 0:
                 count += (target - 1)
