@@ -9,9 +9,9 @@ class Solution:
                 arr.append(comb[:])
                 return 
 
-            for num in nums:
-                if num not in comb:
-                    comb.append(num)
+            for elt in nums:
+                if elt not in comb:
+                    comb.append(elt)
                     pair(comb)
                     comb.pop()
 
